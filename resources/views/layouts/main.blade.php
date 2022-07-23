@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
-
+    <link rel="stylesheet" href="{{asset('adminLte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminLte/plugins/select2/css/select2.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -14,7 +15,6 @@
     <link rel="stylesheet" href="{{asset('adminLte/dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('adminLte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -154,7 +154,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{route('product.index')}}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
                             <p>
                                 Продукты
@@ -162,7 +162,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{route('group.index')}}" class="nav-link">
+                            <i class="nav-icon far fa-image"></i>
+                            <p>
+                                Группы
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('category.index')}}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
                             <p>
                                 Категории
@@ -170,7 +178,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{route('tag.index')}}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
                             <p>
                                 Теги
@@ -178,7 +186,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{route('color.index')}}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
                             <p>
                                 Цвета
@@ -186,7 +194,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{ route('user.index') }}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
                             <p>
                                 Пользователи
@@ -202,13 +210,13 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
- @yield('content')
+        @yield('content')
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
         <strong>Copyright &copy; 2014-{{now()->year}} <a href="{{route('main.index')}}">Магазинчик</a>.</strong>
         All rights reserved.
-     </footer>
+    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -234,6 +242,23 @@
 <script src="{{asset('adminLte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('adminLte/dist/js/adminlte.js')}}"></script>
+<script src="{{asset('adminLte/plugins/select2/js/select2.full.min.js')}}"></script>
+<script>
+    //Initialize Select2 Elements
+    $('.tags').select2()
 
+    //Initialize Select2 Elements
+    $('.tags').select2({
+        theme: 'bootstrap4'
+    })
+    $('.colors').select2()
+
+    //Initialize Select2 Elements
+    $('.colors').select2({
+        theme: 'bootstrap4'
+    })
+
+
+</script>
 </body>
 </html>
